@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const ffmpeg = require("fluent-ffmpeg");
 const moveFile = require("move-file");
+const { time } = require("console");
 
 const watchFolder = "/Users/kevin/Desktop/quicktimeRaw/";
 const outputFolder = "/Users/kevin/Desktop/output/";
@@ -39,7 +40,7 @@ const convertFile = async (rawPath) => {
     } else {
       // move to output dir
       console.log("Not .mov, moving to output dir");
-      await moveFile(rawPath, outputFolder + fileName);
+      await moveFile(rawPath, outputFolder + Date.now().valueOf() + "." + extension);
     }
   } catch (e) {
     console.log("Error, moving to error folder: ", e, rawPath);
