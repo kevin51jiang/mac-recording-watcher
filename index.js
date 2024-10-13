@@ -1,13 +1,13 @@
-const chokidar = require("chokidar");
-const path = require("path");
-const fs = require("fs");
-const ffmpeg = require("fluent-ffmpeg");
-const moveFile = require("move-file");
-const { time } = require("console");
+import chokidar from "chokidar";
+import path from "path";
+import fs from "fs";
+import ffmpeg from "fluent-ffmpeg";
+import { moveFile } from "move-file";
+import { time } from "console";
 
-const watchFolder = "/Users/kevin/Desktop/quicktimeRaw/";
-const outputFolder = "/Users/kevin/Desktop/output/";
-const errorFolder = "/Users/kevin/Desktop/error/";
+const watchFolder = "/Users/kjiang/Desktop/quicktimeRaw/";
+const outputFolder = "/Users/kjiang/Desktop/output/";
+const errorFolder = "/Users/kjiang/Desktop/error/";
 
 const convertFile = async (rawPath) => {
   console.log(`Found new file ${rawPath}`);
@@ -40,7 +40,10 @@ const convertFile = async (rawPath) => {
     } else {
       // move to output dir
       console.log("Not .mov, moving to output dir");
-      await moveFile(rawPath, outputFolder + Date.now().valueOf() + "." + extension);
+      await moveFile(
+        rawPath,
+        outputFolder + Date.now().valueOf() + "." + extension
+      );
     }
   } catch (e) {
     console.log("Error, moving to error folder: ", e, rawPath);
