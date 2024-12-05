@@ -5,9 +5,9 @@ import ffmpeg from "fluent-ffmpeg";
 import { moveFile } from "move-file";
 import { time } from "console";
 
-const watchFolder = "/Users/kjiang/Desktop/quicktimeRaw/";
-const outputFolder = "/Users/kjiang/Desktop/output/";
-const errorFolder = "/Users/kjiang/Desktop/error/";
+const watchFolder = "/Users/kjiang/Desktop/rec/raw/";
+const outputFolder = "/Users/kjiang/Desktop/rec/output/";
+const errorFolder = "/Users/kjiang/Desktop/rec/error/";
 
 const convertFile = async (rawPath) => {
   console.log(`Found new file ${rawPath}`);
